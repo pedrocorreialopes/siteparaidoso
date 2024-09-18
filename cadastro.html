@@ -1,0 +1,63 @@
+
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso de Informática para Idosos</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+<script>
+        function validarFormulario() {
+            var nome = document.forms["inscricaoForm"]["nome"].value;
+            var email = document.forms["inscricaoForm"]["email"].value;
+            var telefone = document.forms["inscricaoForm"]["telefone"].value;
+
+            if (nome == "" || email == "" || telefone == "") {
+                alert("Todos os campos devem ser preenchidos.");
+                return false;
+            }
+
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert("Por favor, insira um endereço de e-mail válido.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Curso de Informática para Idosos</h1>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="sobre.html">Sobre</a>
+        <a href="cursos.html">Cursos</a>
+	<a href="cadastro.html">Cadastro</a>
+	<a href="login.html">Login</a>
+        <a href="contato.html">Contato</a>
+    </nav>
+    <section>
+      <h2>Formulário de Inscrição</h2>
+    <form name="inscricaoForm" action="processa_inscricao.php" onsubmit="return validarFormulario()" method="post">
+        <label for="nome">Nome:</label><br>
+        <input type="text" id="nome" name="nome"><br><br>
+        
+        <label for="email">Email:</label><br>
+        <input type="text" id="email" name="email"><br><br>
+        
+        <label for="telefone">Telefone:</label><br>
+        <input type="text" id="telefone" name="telefone"><br><br>
+        
+        <input type="submit" value="Inscrever-se">
+    </form>  
+    </section>
+    <footer>
+        <p>&copy; 2024 Curso de Informática para Idosos</p>
+    </footer>
+</body>
+</html>
